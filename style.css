@@ -1,1 +1,215 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+
+
+html {
+    font-size: 18px;
+}
+
+body {
+    background-color: #272727;
+    color: white;
+    font-family: "Martian Mono", monospace;
+    margin: 0px;
+    /* забираємо стандартні відступи в тега body */
+}
+
+body.light-theme {
+    background-color: #e6e6e6;
+    color: rgb(24, 24, 24);
+}
+
+header{
+    background: #272727;
+}
+.btn-search{
+    border-radius: 30px;
+}
+.banner {
+    width: 100%;
+    height: 90vh;
+    background: url("img/Group\ 4.png");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+
+.banner h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Стилі карточок взято з 4 уроку 2 модуля (сайт за макетом)  */
+
+.my-card {
+    padding: 28px;
+    background: transparent;
+    transition: background .2s linear;
+    border-radius: 10px;
+    max-width: 350px;
+}
+
+.my-card:hover {
+    background: #DCE5E2;
+    cursor: pointer;
+    transition: background .2s linear;
+    color: #272727;
+}
+
+.light-theme .my-card:hover {
+    background: #ffffff;
+
+}
+
+.text-my-card {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.description-card {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* кількість ліній для показу */
+    -webkit-box-orient: vertical;
+    font-size: 0.7rem;
+
+}
+
+.price-card {
+    font-size: 1rem;
+    line-height: 1rem;
+    /* 120% */
+    color: rgb(154, 131, 255);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.my-card img {
+    width: 244px;
+    height: 214px;
+    object-fit: contain;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+}
+
+.container-cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: flex-start;
+    align-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 72px;
+}
+
+footer {
+    margin-top: 50px;
+    background: rgb(73, 73, 73);
+    padding: 50px 100px;
+    color: #c8c8c8;
+}
+
+.attribution {
+    color: #a8a8a8;
+    font-size: 12px;
+}
+
+.attribution a {
+    color: #a8a8a8;
+}
+
+#themeToggle {
+    background: transparent;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 40px;
+    transition: 0.4s transform linear;
+    margin: 10px;
+    border-color: transparent;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+    transition: 0.4s transform linear;
+    box-shadow: inset 0px 0px 5px rgb(0, 0, 0);
+}
+
+#themeToggle:active {
+    transform: scale(0.9);
+    transition-duration: .2s;
+}
+
+/* Проста анімація появи тексту */
+
+header.fixed {
+    position: fixed;
+    /* Фіксоване позиціонування */
+    top: 0;
+    /* Закріплено зверху */
+    width: 100%;
+    /* Ширина за всю ширину вікна */
+    background: #272727;
+    max-width: 100%;
+    z-index: 100;
+}
+
+/* From Uiverse.io by Mike11jr */ 
+.btn {
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #b1499a;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+   }
+   
+   .btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff86e1;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+   }
+   
+   .btn:hover {
+    background-color: #430049;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+   }
+   
+   .btn:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+   }
+   
+   .btn:active {
+    transform: scale(0.9);
+   }
+
+.fade-in-text{
+    color: #ff86e1;
+}
+
+.banner h3{
+    color: #a8a8a8;
+}
