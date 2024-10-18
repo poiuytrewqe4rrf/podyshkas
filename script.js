@@ -1,21 +1,21 @@
-// Функція для отримання значення кукі за ім'ям
-function getCookieValue(cookieName) {
-    // Розділяємо всі куки на окремі частини
-    const cookies = document.cookie.split(';');
+// // Функція для отримання значення кукі за ім'ям
+// function getCookieValue(cookieName) {
+//     // Розділяємо всі куки на окремі частини
+//     const cookies = document.cookie.split(';');
 
-    // Шукаємо куки з вказаним ім'ям
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
+//     // Шукаємо куки з вказаним ім'ям
+//     for (let i = 0; i < cookies.length; i++) {
+//         const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
 
-        // Перевіряємо, чи починається поточне кукі з шуканого імені
-        if (cookie.startsWith(cookieName + '=')) {
-            // Якщо так, повертаємо значення кукі
-            return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
-        }
-    }
-    // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
-    return '';
-}
+//         // Перевіряємо, чи починається поточне кукі з шуканого імені
+//         if (cookie.startsWith(cookieName + '=')) {
+//             // Якщо так, повертаємо значення кукі
+//             return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
+//         }
+//     }
+//     // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
+//     return '';
+// }
 
 let themeBtn = document.querySelector("#themeToggle")
 
