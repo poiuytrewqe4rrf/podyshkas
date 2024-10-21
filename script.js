@@ -1,21 +1,62 @@
-// // Функція для отримання значення кукі за ім'ям
-// function getCookieValue(cookieName) {
-//     // Розділяємо всі куки на окремі частини
-//     const cookies = document.cookie.split(';');
+// Функція пошуку товарів
+function searchProducts(event) {
+    event.preventDefault(); // Запобігає перезавантаженню сторінки при відправці форми
 
-//     // Шукаємо куки з вказаним ім'ям
-//     for (let i = 0; i < cookies.length; i++) {
-//         const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
+    let query = document.querySelector('#searchForm input').value.toLowerCase();
+    let productsList = document.querySelector('.products-list');
+    productsList.innerHTML = ''; // Очищуємо список товарів
 
-//         // Перевіряємо, чи починається поточне кукі з шуканого імені
-//         if (cookie.startsWith(cookieName + '=')) {
-//             // Якщо так, повертаємо значення кукі
-//             return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
-//         }
-//     }
-//     // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
-//     return '';
-// }
+    // Відображаємо товари на сторінці
+    getProducts().then(function (products) {
+        let foundProducts = 0; // Лічильник знайдених товарів
+        let productsList = document.querySelector('.products-list');
+
+        products.forEach(function (product) {
+            if (product.title.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)) {
+                productsList.innerHTML += getCardHTML(product);
+                foundProducts++; // Збільшуємо лічильник при знаходженні товару
+            }
+        });
+
+        // Якщо не знайдено жодного товару, показуємо alert
+        if (foundProducts === 0) {
+            alert("Такої подушки ще на жаль немає 💢💢💢");
+        }
+
+        // Отримуємо всі кнопки "Купити" на сторінці
+        let buyButtons = document.querySelectorAll('.products-list .cart-btn');
+        // Навішуємо обробник подій на кожну кнопку "Купити"
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.addEventListener('click', addToCart);
+            });
+        }
+    });
+}
+
+// Навішуємо обробник подій на форму пошуку
+let searchForm = document.querySelector('#searchForm');
+searchForm.addEventListener('submit', searchProducts);
+
+
+// Функція для отримання значення кукі за ім'ям
+function getCookieValue(cookieName) {
+    // Розділяємо всі куки на окремі частини
+    const cookies = document.cookie.split(';');
+
+    // Шукаємо куки з вказаним ім'ям
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
+
+        // Перевіряємо, чи починається поточне кукі з шуканого імені
+        if (cookie.startsWith(cookieName + '=')) {
+            // Якщо так, повертаємо значення кукі
+            return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
+        }
+    }
+    // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
+    return '';
+}
 
 let themeBtn = document.querySelector("#themeToggle")
 
@@ -115,17 +156,6 @@ cartBtn.addEventListener("click", function () {
     window.location.assign('cart.html')
 })
 
-// Отримуємо кнопку "Реєстрація" 
-let registerBtn = document.querySelector('.registration-icon');
-
-// Навішуємо обробник подій на клік кнопки "Реєстрація"
-if (registerBtn) {
-    registerBtn.addEventListener("click", function () {
-        // Переходимо на сторінку реєстрації
-        window.location.assign('registration.html');
-    });
-}
-
 
 
 // Створення класу кошика
@@ -209,35 +239,3 @@ function addToCart(event) {
     console.log(cart);
 }
 
-
-// Функція пошуку товарів
-function searchProducts(event) {
-    event.preventDefault(); // Запобігає перезавантаженню сторінки при відправці форми
-
-    let query = document.querySelector('#searchForm input').value.toLowerCase();
-    let productsList = document.querySelector('.products-list');
-    productsList.innerHTML = ''; // Очищуємо список товарів
-
-    // Відображаємо товари на сторінці
-    getProducts().then(function (products) {
-        let productsList = document.querySelector('.products-list')
-        products.forEach(function (product) {
-            if (product.title.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)) {
-                productsList.innerHTML += getCardHTML(product)
-            }
-        })
-
-        // Отримуємо всі кнопки "Купити" на сторінці
-        let buyButtons = document.querySelectorAll('.products-list .cart-btn');
-        // Навішуємо обробник подій на кожну кнопку "Купити"
-        if (buyButtons) {
-            buyButtons.forEach(function (button) {
-                button.addEventListener('click', addToCart);
-            });
-        }
-    })
-}
-
-// Навішуємо обробник подій на форму пошуку
-let searchForm = document.querySelector('#searchForm')
-searchForm.addEventListener('submit', searchProducts);

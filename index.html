@@ -28,7 +28,7 @@
               <a class='nav-link' href='index.html#products'>Товари</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='index.html#about'>Про нас</a>
+              <a class="nav-link" href='#about'>Про нас</a>
             </li>
 
             <li class="nav-item">
@@ -40,7 +40,19 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-secondary btn-search" type="submit">Search</button>
           </form>
-          <button class="btn"> Basket</button>
+          <button class="btn cart-btn" id="cartBtn"> Basket
+            <svg xmlns="http://www.w3.org/2000/svg" class="bell" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 17h-11v-14h-2" />
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+            <span class="cart-counter">0</span>
+            </li>
+          </button>
         </div>
       </div>
     </nav>
@@ -117,7 +129,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
